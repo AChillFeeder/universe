@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }}'s account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/account.css')}}">
+</head>
+<body>
+    <div id="nav-bar">
+        <ul>
+            <li>
+                <a href="#add-file">Add file</a>
+            </li>
+            <li>
+                <a href="#my-files">My files</a>
+            </li>
+            {% if settings[1] == 'admin' %}
+                <li>
+                    <a href="#add-user">Admin controls</a>
+                </li>
+            {% endif %}
+            
+            <li>
+                <a href="/">log-out</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="add-file" class='form-div'>
+        <h2>Add file:</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            <input placeholder="file name..." type="text" name="filename" id="filename">
+            <input placeholder="topic..." type="text" name="topic" id='topic'>
+            <br>
+            <input placeholder="tags..." type="text" name="tags" id="tags">
+            <br>
+            <input placeholder="comment..." type="text" name="comment" id="comment">
+            <br>
+            <input type="file" name="file" id="file" class="inputfile" />
+            <label for="file">Choose a file</label>
+            <br>
+            <input type="submit" value="Upload file">
+        </form>
+    </div>
+    <div id="my-files">
+        <h2>My files:</h2>
+        {% for file in files %}
+            <section id="{{file}}" class="file">
+                <div>
+                    <p>{{file}}</p>
+                </div>
+                <div class="icons">
+                    <a href="/download/{{name}}/{{file}}">
+                        <img src="{{ url_for('static', filename='/img/download.png') }}" class="download">            
+                    </a>
+                    <a href="/delete/{{name}}/{{file}}">
+                        <img src="{{ url_for('static', filename='/img/delete.png') }}" class="delete">
+                    </a>
+                </div>
+            </section>
+        {% endfor %}
+    </div>
+
+    {% if settings[1] == 'admin' %}
+        <div id="add-user" class='form-div'>
+            <h2>Add a user: </h2>
+            <form action="/add-user" method="post">
+                <input type="text" name='name' id='name' placeholder="name">
+                <br>
+                <input type="password" name='password' id='password' placeholder="password">
+                <br>
+                <input type="submit">
+            </form>
+        </div>
+    {% endif %}
+
+
+
+</body>
+</html>
+
+
