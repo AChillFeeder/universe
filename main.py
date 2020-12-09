@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.static_folder = 'templates\static'
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-
+# reminder the comment the hell out of this
 
 def write_logs(name='',password='', ip_address='', time=''):
     with open('logs.txt', 'a') as file:
