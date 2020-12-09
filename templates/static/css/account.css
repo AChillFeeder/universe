@@ -10,10 +10,20 @@ html, body{
 }
 
 #nav-bar{
-    background-color: rgb(92, 92, 211);
+    background-color: rgb(220, 220, 220);
+    /* border-bottom: 2px solid black; */
     height: 50px;
     width: 100%;
     position: fixed;
+}
+#nav-bar:before {
+    content : "";
+    position: absolute;
+    left    : 10%;
+    bottom  : 0;
+    height  : 1px;
+    width   : 80%;  /* or 100px */
+    border-bottom: 2px solid black;
 }
 
 #nav-bar ul{
@@ -29,22 +39,36 @@ html, body{
     text-decoration: none;
 }
 #nav-bar li a:hover{
-    color: white;
+    color: rgb(130, 130, 130);
 }
 
 #add-file{
     height: 600px;
-    background-color: rgb(71, 76, 85);
+    /* background-color: rgb(71, 76, 85); */
     padding: 50px;
+    border-bottom: 2px solid black;
 }
+/* #add-file:before {
+    content : "";
+    position: relative;
+    left    : 10%;
+    bottom  : 0;
+    height  : 1px;
+    width   : 80%;
+    border-bottom: 2px solid black;
+} */
 
 h2{
-    font-size: 45px;
+    margin-top: 10%;
+    font-size: 50px;
+    color: black;
+    letter-spacing: 15px;
+    margin-left: 30px;
 }
 
 #add-file input{
     background: rgba(255, 255, 255, 1);
-    border: 1.5px solid white;
+    border: 1.5px solid black;
     width: 250px;
     padding: 10px;
     padding-left: 20px;
@@ -63,7 +87,7 @@ h2{
 
 #add-file input[type='submit']{
     background: rgb(92, 92, 211);
-    margin: 1px solid white;
+    margin: 2px solid black;
     color: white;
     font-size: 16px;
     padding: 15px;
@@ -71,8 +95,8 @@ h2{
     transition: background-color 0.5s;
 }
 #add-file input[type='submit']:hover{
-    color: rgb(92, 92, 211);
-    background-color: white;
+    color: rgb(255, 255, 255);
+    background-color: rgb(48, 48, 48);
     cursor: pointer;
 }
 
@@ -91,15 +115,15 @@ h2{
     width: 570px;
     margin-top: 15px;
     
-    color: white;
-    border: 1px solid white;
+    color: black;
+    border: 1px solid black;
     text-align: center;
 
     transition: background-color 0.5s;
 }
 #add-file label:hover{
-    background-color: white;
-    color: #222;
+    background-color: rgb(209, 209, 209);
+    /* color: #222; */
     cursor: pointer;
 }
 
@@ -108,9 +132,10 @@ h2{
 
 #my-files{
     height: 500px;
-    background-color: #222;
+    background-color: rgb(214, 214, 214);
     padding: 50px;
     overflow-y: scroll;
+    border-bottom: 2px solid black;
 }
 
 #my-files .file{
@@ -154,8 +179,9 @@ h2{
 
 
 #add-user{
-    background-color: rgb(71, 76, 85);
+    background-color: rgb(255, 255, 255);
     padding: 50px;
+    padding-bottom: 20%;
 }
 
 #add-user form{
@@ -164,15 +190,19 @@ h2{
 
 #add-user input{
     padding: 10px;
+    padding-left: 20px;
     width: 400px;
     margin-bottom: 15px;
+}
+#add-user input:focus{
+    border: 1.5px solid rgb(92, 92, 211);
 }
 
 #add-user input[type='submit']{
     background: rgb(92, 92, 211);
     padding: 10px;
     border: 0.5px solid white;
-    width: 100px;
+    width: 50%;
     color: white;
     margin-top: 20px;
 }
