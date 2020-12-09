@@ -197,6 +197,19 @@ h2{
         margin-left: 0px;
     }
 
+    #add-user form{
+        margin-left: 0;
+    }
+    
+    #add-user input{
+        width: 100%;
+    }
+
+    #add-user input[type="submit"]{
+        width: 100%;
+        padding: 15px;
+    }
+
 }
 
 
